@@ -5,9 +5,9 @@ const typeDefs = gql`
     _id: ID!
     name: String!
     gender: String!
-    phone: Int!
+    phone: String!
     email: String!
-    pets: [Pet]
+    pets: [Pet!]
   }
 
   type Pet {
@@ -40,8 +40,8 @@ const typeDefs = gql`
   }
 
   type Mutation {
-    createOwner(name: String!, gender: String!, phone: Int!, email: String!): Owner
-    updateOwner(_id: ID!, name: String, phone: Int, email: String, pets: [ID]): Owner
+    createOwner(name: String!, gender: String!, phone: String!, email: String!, pets: [ID!]): Owner
+    updateOwner(_id: ID!, name: String, phone: String, email: String, pets: [ID]): Owner
     deleteOwnerById(_id: ID!): DeleteResponse
 
     createPet(name: String!, species: String!, race: String!, date_of_birth: String!): Pet
