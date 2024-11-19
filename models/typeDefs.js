@@ -25,7 +25,7 @@ const typeDefs = gql`
     date_time: String!
     reason: String!
     status: String!
-    notes: String
+    notes: String!
   }
 
   type Query {
@@ -48,13 +48,13 @@ const typeDefs = gql`
     updatePet(_id: ID!, name: String, species: String, race: String, date_of_birth: String): Pet
     deletePetById(_id: ID!): DeleteResponse
 
-    createAppointment(pet_id: ID!, date_time: String!, reason: String!): Appointment
+    createAppointment(pet_id: ID!, date_time: String!, reason: String!, status: String!, notes: String!): Appointment
     updateAppointment(
       _id: ID!
-      date_time: String
-      reason: String
-      status: String
-      notes: String
+      date_time: String!
+      reason: String!
+      status: String!
+      notes: String!
     ): Appointment
     deleteAppointmentById(_id: ID!): DeleteResponse
   }

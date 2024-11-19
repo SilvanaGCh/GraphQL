@@ -217,11 +217,11 @@ const resolvers = {
     },
 
     // Citas
-    createAppointment: async (_, { pet_id, date_time, reason }, { token }) => {
+    createAppointment: async (_, { pet_id, date_time, reason, status, notes }, { token }) => {
       try {
         const response = await axios.post(
           `${BASE_URL}/appointments`,
-          { pet_id, date_time, reason },
+          { pet_id, date_time, reason, status, notes },
           {
             headers: { Authorization: `${token}` },
           }
